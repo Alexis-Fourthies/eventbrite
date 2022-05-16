@@ -2,7 +2,7 @@ class Event < ApplicationRecord
     has_many :attendances
     has_many :users, through: :attendances
     belongs_to :admin, class_name: 'User'
-
+    
     validate :start_date_cannot_be_in_the_past, :duration_must_be_multiple_of_5
 
     def start_date_cannot_be_in_the_past
