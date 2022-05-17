@@ -1,0 +1,43 @@
+<div class='container mt-4'>
+  <br>
+  <h1>Mon profil</h1>
+  
+  
+
+  <div class= 'border border-white mt-4 pt-4 pl-2' style="max-width: 50rem; font-size: 18px;">
+    <p>
+      <u>Prénom</u> : <%= @user.first_name %><br>
+      <u>Nom</u> : <%= @user.last_name %><br>
+      <u>Description</u> : <%= @user.description %><br>
+      <u>Email</u> : <%= @user.email %><br>
+    </p>
+
+  </div>
+  <%= link_to edit_user_registration_path do %>
+<button type="button" class="btn btn-warning mt-4">Éditer votre mot de passe / votre mail </button>
+<% end %>
+</div>
+<br>
+<br>
+<body>
+  <h4 class="text-center">Vos Events créés</h4>
+<br>
+  <% @event_admin.sort.each do |event| %>
+        <% if event.admin_id == current_user.id %>
+          
+<div class="card w-50 mx-auto">
+  <div class="card-header">
+    <%= event.title%>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= event.description %></p>
+      <footer class="blockquote-footer">> <%= link_to event_path(event) do%>En savoir plus</footer>
+    </blockquote>
+  </div>
+</div>
+<br>
+    <%end%>
+<%end%>
+<%end%>
+</body>

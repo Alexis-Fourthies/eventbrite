@@ -1,0 +1,35 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+
+    <h1 class="h3 mb-3 font-weight-normal text-center">Créer ton Event !</h1>
+<br>
+  <%= form_with model: @event, local: true,  html: { class: "form-signin mt-3" } do |f| %>
+    <p> Date de début : <%= f.datetime_select :start_date, class: "form-control"%> </p>
+    <p> Durée : <%= f.text_field :duration, class: "form-control"%> </p>
+    <p> Description : <%= f.text_field :description, class: "form-control"%> </p>
+    <p> Titre : <%= f.text_field :title, class: "form-control"%> </p>
+    <p> Prix de l'Event : <%= f.text_field :price, class: "form-control"%> </p>
+    <p> Lieu de l'Event : <%= f.text_field :location, class: "form-control"%></p>
+    <div class="actions mt-5">
+      <%= f.submit "Créer", class: "d-block btn btn-lg btn-primary btn-block px-4 mx-auto" %>
+    </div>
+  <%end%>
+</div>
+
+<% if @event.errors.any? %>
+  <div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong> Mmmmh... </strong>
+  <p>Nous n'avons pas réussi à créer l'Event pour le/les raisons suivantes :</p>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+</div>
+</div>

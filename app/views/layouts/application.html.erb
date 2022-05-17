@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -19,13 +19,14 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <%= image_tag "logo.png"%>
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 text-secondary">The Eventbrite Project</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Liste des Events</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Créer un Event</a></li>
+          <li><a href="/" class="nav-link px-2 text-secondary">Eventbrite Project</a></li>
+          <li><a href="/" class="nav-link px-2 text-white">Liste des Events</a></li>
+          <li><a href="/events/new" class="nav-link px-2 text-white">Créer un Event</a></li>
         </ul>
 
     <div class="text-end">
@@ -33,8 +34,8 @@
           <a class="btn btn-outline-light me-2" href="/users/sign_up">Inscription</a>        
           <a class="btn btn-warning" href="/users/sign_in">Connexion</a>
           <%else%>
-            <a class="btn btn-warning" href="/users/<%= current_user.id %>">Mon profil></a>    
-            <a class="btn btn-warning" href="/users/sign_out" data-method="delete">Déconnexion</a>      
+            <a class="btn btn-outline-light me-2" href="/users/<%= current_user.id %>">Mon profil</a>    
+            <a class="btn btn-danger" href="/users/sign_out" data-method="delete">Déconnexion</a>      
           <%end%>
   </header>
     <%= yield %>
